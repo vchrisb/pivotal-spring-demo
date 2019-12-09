@@ -1,0 +1,14 @@
+---
+applications:
+- name: service-a
+  memory: 1G
+  instances: 1
+  path: ./target/service-a-0.0.1-SNAPSHOT.jar
+  services:
+    - registry
+    - sso
+  env:
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
+    SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://demo.uaa.sys.moraga.cf-app.com/oauth/token
