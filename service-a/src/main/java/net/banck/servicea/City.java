@@ -1,7 +1,10 @@
 package net.banck.servicea;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 public class City {
 
@@ -13,30 +16,4 @@ public class City {
     private String name;
     private Long population;
 
-    public City() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(Long population) {
-        this.population = population;
-    }
 }

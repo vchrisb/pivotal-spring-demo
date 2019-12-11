@@ -1,6 +1,21 @@
+---
 spring:
+  profiles: dev
+  application:
+    name: service-a
   cloud:
     discovery:
-      enabled: false #Disable discovery
+      enabled: false
     config:
       enabled: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuerUri: https://demo.uaa.sys.moraga.cf-app.com/oauth/token
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
