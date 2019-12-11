@@ -1,16 +1,3 @@
 spring:
   application:
     name: service-c
-  cloud:
-    services:
-      registrationMethod: direct
-    loadbalancer:
-      ribbon:
-        enabled: false # enables Spring Cloud Loadbalancer
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-demo:
-  service-a: "service-a"
-  service-b: "service-b"

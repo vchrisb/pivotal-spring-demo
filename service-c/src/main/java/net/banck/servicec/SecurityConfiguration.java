@@ -14,6 +14,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/cities").hasAuthority("SCOPE_resource.read")
             .anyRequest().authenticated()
             .and()
+            .httpBasic().disable()
             .oauth2ResourceServer()
             .jwt();
     }

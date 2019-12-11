@@ -3,13 +3,16 @@ applications:
 - name: service-a
   buildpacks:
     - java_buildpack_offline
+  routes:
+    - route: service-a.apps.internal
   memory: 1G
   instances: 1
   path: ./target/service-a-0.0.1-SNAPSHOT.jar
   services:
     - registry
+    - config
     - sso
-    - mysql
+    - mysql-a
   env:
     JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
     SPRING_PROFILES_ACTIVE: cloud

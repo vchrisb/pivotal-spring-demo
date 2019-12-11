@@ -4,3 +4,8 @@ spring:
       enabled: false #Disable discovery
     config:
       enabled: false
+    services:
+      registrationMethod: direct
+  jpa:
+    hibernate:
+      ddl-auto: update

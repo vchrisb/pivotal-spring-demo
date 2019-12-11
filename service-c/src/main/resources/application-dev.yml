@@ -4,12 +4,13 @@ spring:
       enabled: false #Disable discovery
     config:
       enabled: false
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: "https://demo.uaa.sys.moraga.cf-app.com/oauth/token"
-demo:
-  service-a: "https://service-a.apps.moraga.cf-app.com"
-  service-b: "service-b"
+    services:
+      registrationMethod: direct
+    loadbalancer:
+      ribbon:
+        enabled: false # enables Spring Cloud Loadbalancer
+  jpa:
+    hibernate:
+      ddl-auto: update
+
 
