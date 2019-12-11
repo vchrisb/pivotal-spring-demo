@@ -1,6 +1,5 @@
 package net.banck.servicea;
 
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,7 +14,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cities").hasAuthority("SCOPE_resource.read")
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic().disable()
                 .oauth2ResourceServer()
                 .jwt();
     }

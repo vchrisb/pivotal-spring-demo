@@ -20,9 +20,9 @@ public class InfoController {
 
     @GetMapping("/info")
     public String info() {
-        List<String> cityNames = new ArrayList<String>();
+        List<String> cityNames = new ArrayList<>();
         serviceAClient.cities().getContent().iterator().forEachRemaining(city -> cityNames.add(city.getName()));
-        List<String> treeNames = new ArrayList<String>();
+        List<String> treeNames = new ArrayList<>();
         serviceBClient.trees().getContent().iterator().forEachRemaining(tree -> treeNames.add(tree.getName()));
         return cityNames.toString() + treeNames.toString();
     }
