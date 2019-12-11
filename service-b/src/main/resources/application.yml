@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: service-b
+  cloud:
+    services:
+      registrationMethod: direct
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    discovery:
+      enabled: false #Disable discovery
+    config:
+      enabled: false
