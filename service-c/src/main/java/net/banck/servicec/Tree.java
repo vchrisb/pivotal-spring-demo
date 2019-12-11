@@ -1,13 +1,13 @@
 package net.banck.servicec;
 
-public class City {
-
+public class Tree {
 
     private long id;
-    private String name;
-    private Long population;
 
-    public City() {
+    private String name;
+    private Long height;
+
+    public Tree() {
     }
 
     public long getId() {
@@ -26,11 +26,11 @@ public class City {
         this.name = name;
     }
 
-    public Long getPopulation() {
-        return population;
+    public Long getHeight() {
+        return height;
     }
 
-    public void setPopulation(Long population) {
-        this.population = population;
+    public void setHeight(Long height) {
+        this.height = height;
     }
 }

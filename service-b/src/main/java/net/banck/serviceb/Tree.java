@@ -3,7 +3,7 @@ package net.banck.serviceb;
 import javax.persistence.*;
 
 @Entity
-public class City {
+public class Tree {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -11,9 +11,9 @@ public class City {
 
     @Column(unique = true)
     private String name;
-    private Long population;
+    private Long height;
 
-    public City() {
+    public Tree() {
     }
 
     public long getId() {
@@ -32,11 +32,11 @@ public class City {
         this.name = name;
     }
 
-    public Long getPopulation() {
-        return population;
+    public Long getHeight() {
+        return height;
     }
 
-    public void setPopulation(Long population) {
-        this.population = population;
+    public void setHeight(Long height) {
+        this.height = height;
     }
 }

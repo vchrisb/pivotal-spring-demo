@@ -10,3 +10,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+demo:
+  service-a: "service-a"
+  service-b: "service-b"
