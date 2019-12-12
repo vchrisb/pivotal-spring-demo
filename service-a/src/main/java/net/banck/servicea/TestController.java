@@ -15,4 +15,9 @@ public class TestController {
         return configComponent.getSomeValue();
     }
 
+    @GetMapping("/somesecurevalue")
+    public String getSomeSecureValue() {
+        return configComponent.getSomeSecureValue();
+    }
+
 }

@@ -6,7 +6,6 @@ import lombok.Data;
 public class Tree {
 
     private long id;
-
     private String name;
     private Long height;
 }
