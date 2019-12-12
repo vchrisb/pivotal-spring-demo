@@ -18,7 +18,7 @@ public class FeignConfiguration {
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 if(auth == null) return;
                 AbstractOAuth2Token token = (AbstractOAuth2Token) auth.getCredentials();
-                System.out.println(token.getTokenValue());
+                //System.out.println(token.getTokenValue());
                 requestTemplate.header("Authorization", "Bearer " + token.getTokenValue());
 
             }
