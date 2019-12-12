@@ -19,4 +19,4 @@ management:
 weather:
   api:
     endpoint: https://api.openweathermap.org/data/2.5/weather
-    apiKey: DUMMY
+    key: DUMMY
