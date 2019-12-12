@@ -1,11 +1,22 @@
 spring:
+  application:
+    name: service-b
   cloud:
     discovery:
-      enabled: false #Disable discovery
+      enabled: false
     config:
       enabled: false
-    services:
-      registrationMethod: direct
-  jpa:
-    hibernate:
-      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuerUri: https://demo.uaa.sys.moraga.cf-app.com/oauth/token
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+weather:
+  api:
+    endpoint: https://api.openweathermap.org/data/2.5/weather
+    apiKey: DUMMY
