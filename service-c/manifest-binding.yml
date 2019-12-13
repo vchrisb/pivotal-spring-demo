@@ -1,0 +1,25 @@
+---
+applications:
+- name: service-c
+  buildpacks:
+    - java_buildpack_offline
+  memory: 1G
+  instances: 2
+  path: ./target/service-c-0.0.1-SNAPSHOT.jar
+  services:
+    - registry
+    - config
+    - name: gateway
+      parameters:
+        routes: 
+          - path: "/service-c/**"
+            sso-enabled: true
+            token-relay: true
+            filters:
+            - "Scopes=resource.read"
+  routes:
+    - route: service-c.apps.internal
+  env:
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'

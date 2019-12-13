@@ -13,4 +13,7 @@ public class ConfigComponent {
     @Value("${some.value:defaultValue}")
     private String someValue;
 
+    @Value("${some.securevalue:defaultSecureValue}")
+    private String someSecureValue;
+
 }

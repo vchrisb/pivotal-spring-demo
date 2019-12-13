@@ -25,5 +25,6 @@ public class InfoController {
         List<String> treeNames = new ArrayList<>();
         serviceBClient.trees().getContent().iterator().forEachRemaining(tree -> treeNames.add(tree.getName()));
         return cityNames.toString() + treeNames.toString();
+        //return cityNames.toString();
     }
 }

@@ -6,6 +6,8 @@ spring:
       enabled: false
     config:
       enabled: false
+    services:
+      registrationMethod: direct
   security:
     oauth2:
       resourceserver:
