@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 
 @FeignClient(value = "service-b", configuration = FeignConfigurationJwtTokenRelay.class)
-@CircuitBreaker(name = "service-b", fallbackMethod = "fallback2")
+@CircuitBreaker(name = "service-b") //, fallbackMethod = "fallback2")
 public interface ServiceBClient {
     @RequestMapping("/trees")
     CollectionModel<Tree> trees();

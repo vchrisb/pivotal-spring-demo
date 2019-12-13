@@ -12,16 +12,13 @@ public class FeignConfigurationJwtTokenRelay {
 
     @Bean
     public RequestInterceptor JwtTokenRelay ( ) {
-        return new RequestInterceptor() {
-            @Override
-            public void apply (RequestTemplate requestTemplate) {
-                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                if(auth == null) return;
-                AbstractOAuth2Token token = (AbstractOAuth2Token) auth.getCredentials();
-                //System.out.println(token.getTokenValue());
-                requestTemplate.header("Authorization", "Bearer " + token.getTokenValue());
+        return requestTemplate -> {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if(auth == null) return;
+            AbstractOAuth2Token token = (AbstractOAuth2Token) auth.getCredentials();
+            //System.out.println(token.getTokenValue());
+            requestTemplate.header("Authorization", "Bearer " + token.getTokenValue());
 
-            }
         };
     }
 }
