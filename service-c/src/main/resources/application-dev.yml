@@ -9,8 +9,10 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false # enables Spring Cloud Loadbalancer
-  jpa:
-    hibernate:
-      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "https://demo.uaa.sys.moraga.cf-app.com/oauth/token"
 
 

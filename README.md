@@ -10,7 +10,7 @@ cf create-service p.service-registry standard registry
 
 cf bind-service service-a gateway -c '{"routes": [ {"path": "/service-a/**","sso-enabled": true, "token-relay": true, "filters": ["Scopes=resource.read"]} ] }'
 cf bind-service service-c gateway -c '{"routes": [ {"path": "/service-c/**","sso-enabled": true, "token-relay": true, "filters": ["Scopes=resource.read"]} ] }'
-
+cf bind-service service-c sso -c '{"grant_types": ["client_credentials"], "scopes": ["openid", "resource.read"], "identity_providers": ["uaa"]}'
 
 cf config-server-add-credhub-secret config service-a/cloud/master/mysecret '{"some.securevalue": "verysecure"}'
 ```

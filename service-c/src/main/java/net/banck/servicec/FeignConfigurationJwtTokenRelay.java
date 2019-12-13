@@ -8,7 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.AbstractOAuth2Token;
 
 
-public class FeignConfiguration {
+public class FeignConfigurationJwtTokenRelay {
 
     @Bean
     public RequestInterceptor JwtTokenRelay ( ) {
