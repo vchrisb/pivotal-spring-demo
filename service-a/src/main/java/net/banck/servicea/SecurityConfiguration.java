@@ -1,5 +1,6 @@
 package net.banck.servicea;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -11,7 +12,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/cities").hasAuthority("SCOPE_resource.read")
+                .mvcMatchers(HttpMethod.GET,"/cities").hasAuthority("SCOPE_cities.read")
+                .mvcMatchers(HttpMethod.POST,"/cities").hasAuthority("SCOPE_cities.write")
                 .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer()

@@ -15,3 +15,4 @@ applications:
     JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
     SPRING_PROFILES_ACTIVE: cloud
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ }}'
+    SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_SSO_SCOPE: cities.read,cities.write,weather.read

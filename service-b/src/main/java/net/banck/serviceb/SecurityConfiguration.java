@@ -11,10 +11,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                //TODO
-                //.antMatchers("/weather").hasAuthority("SCOPE_resource.read")
-                //.anyRequest().authenticated()
-                .anyRequest().permitAll()
+                .mvcMatchers("/weather").hasAuthority("SCOPE_weather.read")
+                .anyRequest().authenticated()
                 .and()
                 .oauth2ResourceServer()
                 .jwt();

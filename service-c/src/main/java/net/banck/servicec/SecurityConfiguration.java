@@ -11,7 +11,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/cities").hasAuthority("SCOPE_resource.read")
+            .mvcMatchers("/info").hasAuthority("SCOPE_info.read")
             .anyRequest().authenticated()
             .and()
             .httpBasic().disable()
