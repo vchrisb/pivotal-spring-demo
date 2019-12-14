@@ -18,7 +18,7 @@ public class FeignConfigurationJwt {
         return requestTemplate -> {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             OAuth2AccessToken accessToken = authorizedClientManager.authorize(OAuth2AuthorizeRequest.withClientRegistrationId("sso").principal(auth).build()).getAccessToken();
-            System.out.println(accessToken.getTokenValue());
+            //System.out.println(accessToken.getTokenValue());
             requestTemplate.header("Authorization", "Bearer " + accessToken.getTokenValue());
         };
     }

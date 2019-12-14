@@ -73,6 +73,11 @@
             <version>1.2.0</version>
         </dependency>
         <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-feign</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>io.pivotal.cfenv</groupId>
             <artifactId>java-cfenv-boot</artifactId>
             <version>${java-cfenv.version}</version>
