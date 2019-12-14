@@ -2,19 +2,16 @@ package net.banck.servicec;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 @FeignClient(value = "service-b", configuration = FeignConfigurationJwt.class)
-@CircuitBreaker(name = "service-b") //, fallbackMethod = "fallback2")
+@CircuitBreaker(name = "service-b")
 public interface ServiceBClient {
-    @RequestMapping("/trees")
-    CollectionModel<Tree> trees();
 
-    default CollectionModel<Tree> fallback2() {
-        System.out.println("fallback");
-        return new CollectionModel<Tree>(new ArrayList<>());
-    }
+    @GetMapping("/weather/{city}")
+    Map weather(@PathVariable String city);
+
 }

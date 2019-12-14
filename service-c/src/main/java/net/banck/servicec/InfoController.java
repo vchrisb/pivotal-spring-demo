@@ -1,14 +1,14 @@
 package net.banck.servicec;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
 @RestController
 public class InfoController {
-
 
     private final ServiceAClient serviceAClient;
     private final ServiceBClient serviceBClient;
@@ -19,12 +19,21 @@ public class InfoController {
     }
 
     @GetMapping("/info")
-    public String info() {
-        List<String> cityNames = new ArrayList<>();
-        serviceAClient.cities().getContent().iterator().forEachRemaining(city -> cityNames.add(city.getName()));
-        List<String> treeNames = new ArrayList<>();
-        //serviceBClient.trees().getContent().iterator().forEachRemaining(tree -> treeNames.add(tree.getName()));
-        //return cityNames.toString() + treeNames.toString();
-        return cityNames.toString();
+    public Collection<City> info() {
+        Collection<City> cities = serviceAClient.cities().getContent();
+        cities.parallelStream().forEach(c -> c.setWeather(serviceBClient.weather(c.getName())));
+
+        return cities;
     }
+
+    @GetMapping("/cities")
+    public Collection<City> cities() {
+        return serviceAClient.cities().getContent();
+    }
+
+    @GetMapping("/weather/{city}")
+    public Map weather(@PathVariable String city) {
+        return serviceBClient.weather(city);
+    }
+
 }
