@@ -21,7 +21,7 @@ public class InfoController {
     @GetMapping("/info")
     public Collection<City> info() {
         Collection<City> cities = serviceAClient.cities().getContent();
-        cities.parallelStream().forEach(c -> c.setWeather(serviceBClient.weather(c.getName())));
+        cities.forEach(c -> c.setWeather(serviceBClient.weather(c.getName())));
 
         return cities;
     }

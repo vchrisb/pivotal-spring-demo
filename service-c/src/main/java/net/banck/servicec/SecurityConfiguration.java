@@ -15,6 +15,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated()
             .and()
             .httpBasic().disable()
+            //.oauth2Client()
+            //.and()
             .oauth2ResourceServer()
             .jwt();
     }
