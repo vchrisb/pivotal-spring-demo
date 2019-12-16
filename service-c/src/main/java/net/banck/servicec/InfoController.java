@@ -31,6 +31,7 @@ public class InfoController {
         return serviceAClient.cities().getContent();
     }
 
+    @SuppressWarnings("rawtypes")
     @GetMapping("/weather/{city}")
     public Map weather(@PathVariable String city) {
         return serviceBClient.weather(city);
