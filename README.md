@@ -4,6 +4,7 @@
 ##  Prepare
 
 ### Create Services
+
 ```
 cf create-service p-identity demo sso
 cf create-service p.gateway standard gateway -c '{ "host": "gateway", "sso": { "plan": "demo" } }'
@@ -13,6 +14,7 @@ cf create-service p.service-registry standard registry
 ```
 
 ### Bind Gateway to create routes
+
 ```
 cf bind-service service-a gateway -c '{"routes": [ {"path": "/service-a/**","sso-enabled": true, "token-relay": true, "filters": ["Scopes=cities.read,cities.write"]} ] }'
 cf bind-service service-b gateway -c '{"routes": [ {"path": "/service-b/**","sso-enabled": true, "token-relay": true, "filters": ["Scopes=weather.read"]} ] }'
@@ -25,7 +27,15 @@ cf bind-service service-c gateway -c '{"routes": [ {"path": "/service-c/**","sso
 cf bind-service service-c sso -c '{"grant_types": ["client_credentials"], "authorities": ["cities.read", "cities.write", "weather.read"], "identity_providers": ["uaa"]}'
 ```
 
+### Create network policies
+
+```
+cf add-network-policy service-c --destination-app service-a --protocol tcp --port 8080
+cf add-network-policy service-c --destination-app service-b --protocol tcp --port 8080
+```
+
 ### Create secure value in credhub for service-a
+
 ```
 cf config-server-add-credhub-secret config service-a/cloud/master/mysecret '{"some.securevalue": "verysecure"}'
 ```
