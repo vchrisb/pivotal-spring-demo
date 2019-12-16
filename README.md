@@ -32,9 +32,9 @@ cf config-server-add-credhub-secret config service-a/cloud/master/mysecret '{"so
 
 ## Endpoints
 
-`<gateway-url>/service-c/info`: returning combined data from `service-a` and `service-b`
-`<gateway-url>/service-c/cities`: returning `cities` from `service-a` through `service-c`
-`<gateway-url>/service-c/weather/<city>`: returning `weather` for `<city>` from `service-b` through `service-c`
+`<gateway-url>/service-c/info`: returning combined data from `service-a` and `service-b`  
+`<gateway-url>/service-c/cities`: returning `cities` from `service-a` through `service-c`  
+`<gateway-url>/service-c/weather/<city>`: returning `weather` for `<city>` from `service-b` through `service-c`  
 
-`<gateway-url>/service-a/cities`: returning `cities` from `service-a`
-`<gateway-url>/service-b/weather/<city>`: returning `weather` for `<city>`
+`<gateway-url>/service-a/cities`: returning `cities` from `service-a`  
+`<gateway-url>/service-b/weather/<city>`: returning `weather` for `<city>`  
